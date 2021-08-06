@@ -1,12 +1,14 @@
 import java.util.LinkedList;
-import java.util.List;
+
 
 public class Warehouse {
-    private LinkedList<Product> data = new LinkedList<>();
+    private final LinkedList<Product> data = new LinkedList<>();
+
 
     public void addProduct() {
+
         synchronized (this) {
-            while (data.size() >= 5) {
+            while (data.size() >= 1) {
                 try {
                     wait();
                 } catch (InterruptedException e) {
@@ -15,8 +17,8 @@ public class Warehouse {
             }
             Product current = new Product();
             data.add(current);
-            System.out.println("Added:" + current+": Products in warehouse:"+ data.size());
-            notify();
+            System.out.println("Added:" + current + ": Products in warehouse:" + data.size());
+            notifyAll();
 
         }
     }
@@ -31,8 +33,8 @@ public class Warehouse {
                 }
             }
             Product deleted = data.pop();
-            System.out.println("Deleted:" + deleted+": Products in warehouse:"+ data.size());
-            notify();
+            System.out.println("Deleted:" + deleted + ": Products in warehouse:" + data.size());
+            notifyAll();
         }
     }
 }

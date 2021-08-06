@@ -15,6 +15,7 @@ public class Main {
         Producer producer5 = new Producer(warehouse);
         Producer producer6 = new Producer(warehouse);
 
+
         consumer1.start();
         consumer2.start();
         consumer3.start();
