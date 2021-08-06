@@ -21,11 +21,12 @@ public class Main {
         consumer4.start();
         consumer5.start();
         consumer6.start();
-        producer1.start();
-        producer2.start();
-        producer3.start();
-        producer4.start();
         producer5.start();
+        producer4.start();
+        producer3.start();
+        producer2.start();
+        producer1.start();
         producer6.start();
+
     }
 }
